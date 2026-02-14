@@ -9,15 +9,11 @@ func Run() error {
 	app := &cobra.Command{
 		Use: "bgmg",
 		Run: func(cmd *cobra.Command, args []string) {
-			if len(args) == 0 {
+			if len(args) == 0 || args[0] == "0" {
 				art.Success()
 				return
 			}
-			if args[0] == "0" {
-				art.Success()
-				return
-			}
-			art.Success()
+			art.Failure()
 		},
 	}
 	return app.Execute()
